@@ -1,23 +1,46 @@
 package com.ensa.gi4.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 import com.ensa.gi4.modele.Materiel;
 import com.ensa.gi4.service.api.GestionMaterielService;
 
 public class GestionMaterielServiceImpl implements GestionMaterielService {
-    // bd goes here
+
+	List<Materiel> list = new ArrayList<>();	
+	
     @Override
     public void init() {
-        System.out.println("inititialisation du service");
+        System.out.println("*********Bienvenue dans notre boutique*********");
     }
 
     @Override
     public void listerMateriel() {
-        System.out.println("Liste de matériel :\n 3 Livres \n 4 chaises");
+        for(Materiel m : list)
+        {
+            System.out.println(m.getName());
+        }
     }
 
     @Override
     public void ajouterNouveauMateriel(Materiel materiel) {
-        // à compléter
-        System.out.println("L'ajout du matériel " + materiel.getName() + " effectué avec succès !");
+        System.out.println("2.1- pour ajouter un nouveau livre, entrer 1");
+        System.out.println("2.2- pour ajouter un nouveau chaise, entrer 2");
+        Scanner scanner = new Scanner(System.in);
+        String next = scanner.next();
+
+        if ("1".equals(next)) {
+        	list.add(materiel);
+        } else if ("2".equals(next)) {
+        	list.add(materiel);
+        }
+        else {
+            System.out.println("choix invalide");
+        }
     }
+
+
+	
 }
